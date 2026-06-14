@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 6. Countdown Timer Logic (Dynamic Badge)
   // ------------------------------------------
   const startDate = new Date("May 25, 2026 00:00:00").getTime();
-  const deadlineDate = new Date("June 15, 2026 23:59:59").getTime();
+  const deadlineDate = new Date("June 22, 2026 23:59:59").getTime();
 
   function updateCountdown() {
     const now = new Date().getTime();
