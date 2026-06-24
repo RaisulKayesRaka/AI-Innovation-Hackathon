@@ -258,8 +258,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------------------
   // 6. Countdown Timer Logic (Dynamic Badge)
   // ------------------------------------------
-  const startDate = new Date("May 25, 2026 00:00:00").getTime();
-  const deadlineDate = new Date("June 22, 2026 23:59:59").getTime();
+  const startDate = new Date("June 25, 2026 00:00:00").getTime();
+  const deadlineDate = new Date("June 30, 2026 23:59:59").getTime();
 
   function updateCountdown() {
     const now = new Date().getTime();
@@ -267,15 +267,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (now < startDate) {
       targetDate = startDate;
-      labelText = "Registration Starts In:";
+      labelText = "Submission Starts In:";
     } else if (now < deadlineDate) {
       targetDate = deadlineDate;
-      labelText = "Registration Ends In:";
+      labelText = "Submission Ends In:";
     } else {
       const badge = document.getElementById("hero-countdown-badge");
       if (badge) {
         badge.innerHTML =
-          '<span class="dot"></span> <span class="gradient-text">Registration Closed</span>';
+          '<span class="dot"></span> <span class="gradient-text">Submission Closed</span>';
       }
       return;
     }
