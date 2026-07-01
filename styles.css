@@ -1455,6 +1455,104 @@ body {
   font-size: 0.9rem;
 }
 
+
+/* ---------- 12.5 JUDGES SECTION ---------- */
+.judges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.judge-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition:
+    transform var(--transition-smooth),
+    border-color var(--transition-smooth),
+    box-shadow var(--transition-smooth);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.judge-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.judge-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 0;
+  overflow: hidden;
+  border: 2px solid var(--border-accent);
+  margin-bottom: 0.5rem;
+}
+
+.judge-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.judge-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.judge-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.judge-name a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.judge-name a:hover {
+  color: var(--accent-violet);
+}
+
+.judge-designation {
+  font-size: 0.9rem;
+  color: var(--accent-violet);
+  font-weight: 500;
+}
+
+.judge-dept {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.judge-email {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.judge-email:hover {
+  color: var(--text-primary);
+}
+
 /* ---------- 13. REGISTRATION SECTION ---------- */
 .register-container {
   background: var(--accent-gradient);
