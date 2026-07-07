@@ -258,24 +258,28 @@ document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------------------
   // 6. Countdown Timer Logic (Dynamic Badge)
   // ------------------------------------------
-  const startDate = new Date("June 25, 2026 00:00:00").getTime();
-  const deadlineDate = new Date("June 30, 2026 23:59:59").getTime();
+  const phases = [
+    { name: "Submission Starts In:", date: new Date("June 25, 2026 00:00:00").getTime() },
+    { name: "Phase-1 Submission Ends In:", date: new Date("July 7, 2026 23:59:59").getTime() },
+    { name: "Finalist Announcement In:", date: new Date("July 11, 2026 23:59:59").getTime() },
+    { name: "Phase-2 Registration Ends In:", date: new Date("July 15, 2026 23:59:59").getTime() },
+    { name: "Final Round Starts In:", date: new Date("July 21, 2026 08:00:00").getTime() }
+  ];
 
   function updateCountdown() {
     const now = new Date().getTime();
+    
+    const currentPhase = phases.find(phase => now < phase.date);
     let targetDate, labelText;
 
-    if (now < startDate) {
-      targetDate = startDate;
-      labelText = "Submission Starts In:";
-    } else if (now < deadlineDate) {
-      targetDate = deadlineDate;
-      labelText = "Submission Ends In:";
+    if (currentPhase) {
+      targetDate = currentPhase.date;
+      labelText = currentPhase.name;
     } else {
       const badge = document.getElementById("hero-countdown-badge");
       if (badge) {
         badge.innerHTML =
-          '<span class="dot"></span> <span class="gradient-text">Submission Closed</span>';
+          '<span class="dot"></span> <span class="gradient-text">Hackathon Concluded</span>';
       }
       return;
     }
