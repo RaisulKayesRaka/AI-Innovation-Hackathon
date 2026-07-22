@@ -417,4 +417,7 @@ document.addEventListener("DOMContentLoaded", () => {
       group.appendChild(btn);
     }
   });
+  
+  // Create icons for the newly added "View All" buttons
+  lucide.createIcons();
 });

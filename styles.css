@@ -724,6 +724,18 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+.about-step.completed .step-number {
+  background: var(--surface-glass);
+  color: var(--accent-purple);
+  border-color: var(--border-subtle);
+}
+
+.about-step.completed .step-text {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--border-accent);
+}
+
 .about-step:hover .step-number {
   background: var(--accent-gradient);
   color: #fff;
@@ -1070,6 +1082,37 @@ body {
   border-color: var(--border-accent);
 }
 
+.timeline-item.completed .timeline-content {
+  opacity: 0.6;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.timeline-item.completed::before {
+  border-color: var(--border-subtle);
+  box-shadow: none;
+}
+
+.timeline-item.completed::after {
+  background: var(--border-subtle);
+  box-shadow: none;
+}
+
+.timeline-item.active .timeline-content {
+  border-color: var(--accent-pink);
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.1);
+}
+
+.timeline-item.active::before {
+  border-color: var(--accent-pink);
+  box-shadow: 0 0 20px var(--accent-pink);
+}
+
+.timeline-item.active::after {
+  background: var(--accent-pink);
+  box-shadow: 0 0 15px var(--accent-pink);
+}
+
 .timeline-date {
   font-size: 0.8rem;
   color: var(--accent-violet);
@@ -1307,6 +1350,29 @@ body {
   border: 1px solid var(--border-subtle);
 }
 
+.judging-phase.completed {
+  opacity: 0.7;
+  border-color: var(--accent-violet);
+  background: rgba(139, 92, 246, 0.03);
+  position: relative;
+}
+
+.phase-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--accent-violet);
+  color: white;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-left: 0.75rem;
+  vertical-align: middle;
+  letter-spacing: 0.5px;
+}
+
 .judging-phase h3 {
   font-size: 1.2rem;
   font-weight: 700;
@@ -1462,7 +1528,6 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  margin-top: 3rem;
 }
 
 .judges-grid > .judge-card {
@@ -1691,13 +1756,11 @@ body {
 }
 
 .organizer-label {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--accent-violet);
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
   text-align: center;
-  opacity: 0.8;
 }
 
 .organizer-cards {
