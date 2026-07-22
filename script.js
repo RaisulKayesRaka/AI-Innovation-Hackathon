@@ -373,4 +373,48 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // ------------------------------------------
+  // 10. Organizers "Load More" Logic
+  // ------------------------------------------
+  const organizerGroups = document.querySelectorAll(".organizer-group");
+  
+  organizerGroups.forEach(group => {
+    const grid = group.querySelector(".judges-grid, .organizer-cards");
+    if (!grid) return;
+    
+    const cards = grid.querySelectorAll(".judge-card, .organizer-card");
+    if (cards.length > 3) {
+      // Hide cards beyond the 3rd one
+      for (let i = 3; i < cards.length; i++) {
+        cards[i].style.display = "none";
+      }
+      
+      // Create toggle button
+      const btn = document.createElement("button");
+      btn.className = "btn-secondary toggle-members-btn";
+      btn.style.margin = "2rem auto 0 auto";
+      btn.style.display = "flex";
+      btn.style.alignItems = "center";
+      btn.innerHTML = 'View All <i data-lucide="chevron-down" style="margin-left: 8px;"></i>';
+      
+      let isExpanded = false;
+      
+      btn.addEventListener("click", () => {
+        isExpanded = !isExpanded;
+        
+        for (let i = 3; i < cards.length; i++) {
+          cards[i].style.display = isExpanded ? "flex" : "none";
+        }
+        
+        btn.innerHTML = isExpanded 
+          ? 'Show Less <i data-lucide="chevron-up" style="margin-left: 8px;"></i>'
+          : 'View All <i data-lucide="chevron-down" style="margin-left: 8px;"></i>';
+          
+        lucide.createIcons();
+      });
+      
+      group.appendChild(btn);
+    }
+  });
 });
